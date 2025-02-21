@@ -1,0 +1,87 @@
+.storageSection {
+    margin-top: 32px;
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 24px;
+}
+
+.sectionHeader {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.storageContainer {
+    position: relative;
+}
+
+.topRow {
+    display: flex;
+    margin-bottom: 8px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.storageLabel {
+    font-size: 12px;
+    font-weight: 600;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 9999px;
+    color: #374151;
+    background-color: #b2f2d5;
+}
+
+.storagePercent {
+}
+
+.percentValue {
+    font-size: 12px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.progressBar {
+    overflow: hidden;
+    height: 8px;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    background-color: #b2f2d5;
+}
+
+.filledBar {
+    width: 75%;
+    box-shadow: none;
+    flex-direction: column;
+    text-align: center;
+    white-space: nowrap;
+    color: #fff;
+    justify-content: center;
+    background-color: #10b981;
+    transition: all 0.5s;
+}
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    text-align: center;
+}
+
+.gridCell {
+    padding: 12px;
+    background-color: #f9fafb;
+    border-radius: 24px;
+}
+
+.cellLabel {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.cellValue {
+    font-size: 18px;
+    font-weight: 600;
+}

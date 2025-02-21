@@ -1,0 +1,82 @@
+.folderItem {
+    background-color: #fff;
+    padding: 16px;
+    border-radius: 24px;
+    transition: all 0.2s;
+    transform: scale(1);
+}
+
+.folderItem:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+}
+
+.folderItemTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.folderIcon {
+    font-size: 36px;
+}
+
+.optionsContainer {
+    position: relative;
+}
+
+.optionsButton {
+    list-style: none;
+    cursor: pointer;
+}
+
+.optionsIcon {
+    font-size: 24px;
+}
+
+.dropdownMenu {
+    position: absolute;
+    right: 0;
+    margin-top: 8px;
+    width: 192px;
+    background-color: #fff;
+    border-radius: 24px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    padding-top: 8px;
+    padding-bottom: 8px;
+    z-index: 10;
+}
+
+.menuItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    transition: background-color 0.2s;
+}
+
+.menuItem:hover {
+    background-color: #f3f4f6;
+}
+.menuItemDelete {
+    color: #ef4444;
+}
+
+.menuIcon {
+    font-size: 20px;
+}
+
+.folderName {
+    font-weight: 600;
+}
+
+.fileCount {
+    font-size: 14px;
+    color: #6b7280;
+}

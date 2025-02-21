@@ -1,0 +1,52 @@
+.recentFileItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    transition: background-color 0.2s;
+}
+
+.recentFileItem:hover {
+    background-color: #f3f4f6;
+}
+
+.fileInfo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.fileIcon {
+    font-size: 24px;
+}
+
+.fileName {
+    font-weight: 500;
+}
+
+.modifiedDate {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.sizeAndOptions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.fileSize {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.optionsIcon {
+    font-size: 20px;
+    color: #9ca3af;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.recentFileItem:hover .optionsIcon {
+    opacity: 1;
+}

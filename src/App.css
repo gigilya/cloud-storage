@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body {
+    line-height: inherit;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    min-width: 100vw;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: #d4d4d4;
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 16px !important;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1200px;
+}
