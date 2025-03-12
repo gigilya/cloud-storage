@@ -1,5 +1,5 @@
 import React from 'react';
-import FolderItem from './FolderItem.tsx';
+import FolderItem from '../FolderItem/FolderItem.tsx';
 import styles from './FolderGrid.module.css';
 
 const FolderGrid: React.FC = () => {

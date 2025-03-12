@@ -1,10 +1,10 @@
 import React from 'react';
-import FileSearch from './FileSearch';
-import ActionButtons from './ActionButtons';
-import Navigation from './Navigation';
-import FolderGrid from './FolderGrid';
-import RecentFiles from './RecentFiles';
-import StorageUsage from './StorageUsage';
+import FileSearch from '../FileSearch/FileSearch.tsx';
+import ActionButtons from '../ActionButtons/ActionButtons.tsx';
+import Navigation from '../Navigation/Navigation.tsx';
+import FolderGrid from '../FolderGrid/FolderGrid.tsx';
+import RecentFiles from '../RecentFiles/RecentFiles.tsx';
+import StorageUsage from '../StorageUsage/StorageUsage.tsx';
 import styles from './MainFileManager.module.css';
 
 const MainFileManager: React.FC = () => {

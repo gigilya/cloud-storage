@@ -1,5 +1,5 @@
 import React from 'react';
-import RecentFileItem from './RecentFileItem.tsx';
+import RecentFileItem from '../RecentFileItem/RecentFileItem.tsx';
 import styles from './RecentFiles.module.css';
 
 const RecentFiles: React.FC = () => {
