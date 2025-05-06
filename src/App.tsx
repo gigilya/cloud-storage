@@ -1,4 +1,4 @@
-import MainFileManager from './components/MainFileManager/MainFileManager.tsx';
+import MainFileManager from './widgets/MainFileManager/MainFileManager.tsx';
 import './App.css';
 
 function App() {
