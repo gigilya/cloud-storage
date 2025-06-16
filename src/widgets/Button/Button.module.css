@@ -1,0 +1,28 @@
+@import url("../../shared/styles/color.css");
+
+.actionButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-btn-color);
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    transform: translateY(-2px);
+    background-color: var(--primary-color);
+    font-size: 1.1rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px var(--text-shadow-color);
+    text-decoration: none;
+}
+
+.actionButton:hover {
+    background-color: var(--primary-hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px var(--text-shadow-color);
+}
+
+.actionIcon {
+    font-size: 20px;
+}

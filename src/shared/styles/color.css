@@ -1,0 +1,22 @@
+:root {
+    --white: white;
+
+    --primary-color: #10b981;
+    --primary-hover-color: #0d9c6e;
+    --text-title-color: #334155;
+    --text-btn-color: var(--white);
+    --text-color: #888;
+    --text-p-color: #666;
+    --text-shadow-color:rgba(16, 185, 129, 0.1);
+    --shadow-folder-color: rgba(0, 0, 0, 0.1);
+    --divider-color: #e0e0e0;
+    --main-bg: #f3f4f6;
+    --body-bg: #d4d4d4;
+    --default-bg: var(--white);
+    --border-input-color: #e5e7eb;
+    --file-hover-color: #f3f4f6
+}
+/*
+@import url("../../shared/styles/color.css");
+@import url("../../../shared/styles/color.css");
+*/

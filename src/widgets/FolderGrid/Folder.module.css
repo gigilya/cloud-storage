@@ -1,0 +1,27 @@
+@import url("../../shared/styles/color.css");
+
+.scrollContainer {
+    overflow-x: auto;
+    margin-bottom: 30px;
+    width: 900px;
+    border-radius: 30px;
+}
+
+.folderGrid {
+    display: inline-flex;
+    gap: 16px;
+    margin: 12px 0;
+}
+.folders {
+    display: flex;
+    justify-content: center;
+}
+
+.scrollContainer::-webkit-scrollbar {
+    height: 6px;
+}
+
+.scrollContainer::-webkit-scrollbar-thumb {
+    background: var(--divider-color);
+    border-radius: 3px;
+}

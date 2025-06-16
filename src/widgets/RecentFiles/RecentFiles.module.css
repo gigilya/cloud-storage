@@ -1,5 +1,7 @@
+@import url("../../shared/styles/color.css");
+
 .recentFilesSection {
-    background-color: #fff;
+    background-color: var(--default-bg);
     padding: 24px;
     border-radius: 24px;
 }

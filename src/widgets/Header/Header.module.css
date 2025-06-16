@@ -1,0 +1,37 @@
+@import url("../../shared/styles/color.css");
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--body-bg);
+    border-radius: 0 0 10px 10px;
+    padding: 0 10px;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: default;
+}
+
+.logoContainer:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.appName {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.buttonUser {
+    display: flex;
+    gap: 20px;
+}

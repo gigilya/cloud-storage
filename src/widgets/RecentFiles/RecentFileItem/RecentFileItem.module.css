@@ -1,13 +1,16 @@
+@import url("../../../shared/styles/color.css");
+
 .recentFileItem {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 12px;
     transition: background-color 0.2s;
+    color: var(--text-title-color)
 }
 
 .recentFileItem:hover {
-    background-color: #f3f4f6;
+    background-color: var(--file-hover-color);
 }
 
 .fileInfo {
@@ -24,11 +27,6 @@
     font-weight: 500;
 }
 
-.modifiedDate {
-    font-size: 14px;
-    color: #6b7280;
-}
-
 .sizeAndOptions {
     display: flex;
     align-items: center;
@@ -37,12 +35,12 @@
 
 .fileSize {
     font-size: 14px;
-    color: #6b7280;
+    color: var(--text-p-color);
 }
 
 .optionsIcon {
     font-size: 20px;
-    color: #9ca3af;
+    color: var(--text-p-color);
     opacity: 0;
     transition: opacity 0.2s;
 }

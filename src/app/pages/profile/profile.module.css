@@ -1,0 +1,67 @@
+@import url("../../../shared/styles/color.css");
+
+.profileContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.profileContent {
+    border-radius: 12px;
+    margin: 40px 0;
+    width: 100%;
+    max-width: 70%;
+}
+
+.profileHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.avatarContainer {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profileActions {
+    margin-top: 10px;
+}
+
+.profileInfo {
+    margin-bottom: 40px;
+}
+
+.userName {
+    font-size: 24px;
+    margin: 0 0 8px 0;
+    color: var(--text-title-color);
+}
+
+.userEmail {
+    margin: 0 0 8px 0;
+    color: var(--text-p-color);
+    font-size: 16px;
+}
+
+.editFields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profileStats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.editFields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
