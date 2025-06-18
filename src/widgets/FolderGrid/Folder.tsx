@@ -13,37 +13,14 @@ const FolderGrid: React.FC = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    // Заглушка для получения данных из API
     useEffect(() => {
         const fetchFolders = async () => {
             try {
                 setLoading(true);
-                // Здесь будет реальный вызов API
-                // const response = await fetch('/api/folders');
-                // const data = await response.json();
-
-                // Имитация загрузки данных
-                await new Promise((resolve) => setTimeout(resolve, 500));
-
-                // Заглушечные данные
                 const mockData: Folder[] = [
-                    { name: 'Documents', files: 15, icon: 'blue-500' },
-                    { name: 'Images', files: 243, icon: 'green-500' },
-                    { name: 'Videos', files: 35, icon: 'purple-500' },
-                    { name: 'Music', files: 128, icon: 'orange-500' },
-                    { name: 'Music', files: 128, icon: 'orange-500' },
-                    { name: 'Music', files: 128, icon: 'orange-500' },
-                    { name: 'Music', files: 128, icon: 'orange-500' },
-                    { name: 'Music', files: 128, icon: 'orange-500' },
-                    { name: 'Music', files: 128, icon: 'orange-500' },
-                    { name: 'Music', files: 128, icon: 'orange-500' },
-                    { name: 'Music', files: 128, icon: 'orange-500' },
-                    { name: 'Music', files: 128, icon: 'orange-500' },
-                    { name: 'Music', files: 128, icon: 'orange-500' },
-                    { name: 'Music', files: 128, icon: 'orange-500' },
-                    { name: 'Music', files: 128, icon: 'orange-500' },
-                    { name: 'Music', files: 128, icon: 'orange-500' },
-                    { name: 'Music', files: 128, icon: 'orange-500' },
+                    { name: 'Documents', files: 15, icon: '' },
+                    { name: 'Images', files: 243, icon: '' },
+                    { name: 'Videos', files: 35, icon: '' },
                 ];
 
                 setFolders(mockData);

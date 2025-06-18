@@ -3,7 +3,6 @@
 .scrollContainer {
     overflow-x: auto;
     margin-bottom: 30px;
-    width: 900px;
     border-radius: 30px;
 }
 

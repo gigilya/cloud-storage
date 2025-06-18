@@ -16,3 +16,9 @@
     flex-direction: row;
     gap: 10px;
  }
+
+.showAllContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}

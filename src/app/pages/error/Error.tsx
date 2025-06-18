@@ -1,11 +1,18 @@
 import React from 'react';
-import { Link, useRouteError } from 'react-router-dom';
+import { useRouteError } from 'react-router-dom';
 import styles from './Error.module.css';
 import Button from '../../../widgets/Button/Button.tsx';
+import { useNavigate } from 'react-router';
 
 const Error: React.FC = () => {
     const error = useRouteError();
+    const navigate = useNavigate();
     console.error(error);
+
+    const handleNavigateToHome = () => {
+        navigate('/home');
+        window.location.reload();
+    };
 
     const logo = (
         <path
@@ -22,7 +29,8 @@ const Error: React.FC = () => {
                     width="400"
                     height="320"
                     viewBox="0 0 120 80"
-                    className={styles.cloudLogo}>
+                    className={styles.cloudLogo}
+                >
                     {logo}
                 </svg>
             </div>
@@ -36,9 +44,10 @@ const Error: React.FC = () => {
                 <p className={styles.message}>
                     Кажется, мы не можем найти то, что вы ищете
                 </p>
-                <Link to="/">
-                    <Button text="Вернуться на главную" />
-                </Link>
+                <Button
+                    text="Вернуться на главную"
+                    onClick={handleNavigateToHome}
+                />
             </div>
         </div>
     );

@@ -1,12 +1,32 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import ErrorPage from '../pages/error/Error.tsx';
 import MainLayout from '../layuots/mainLayout/MainLayout.tsx';
-import RegisterLayout from '../layuots/authLayout/AuthLayout.tsx';
+import AuthLayout from '../layuots/authLayout/AuthLayout.tsx';
+import React from 'react';
+
+// Функция проверки авторизации
+const isAuthenticated = () => {
+    return !!localStorage.getItem('accessToken');
+};
+
+// Защищенный маршрут
+const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+    return isAuthenticated() ? children : <Navigate to="/" replace />;
+};
+
+// Публичный маршрут (только для неавторизованных)
+const PublicRoute = ({ children }: { children: React.ReactNode }) => {
+    return !isAuthenticated() ? children : <Navigate to="/auth" replace />;
+};
 
 export const router = createBrowserRouter([
     {
         path: '/home',
-        element: <MainLayout />,
+        element: (
+            <ProtectedRoute>
+                <MainLayout />
+            </ProtectedRoute>
+        ),
         errorElement: <ErrorPage />,
         children: [
             {
@@ -34,7 +54,11 @@ export const router = createBrowserRouter([
     },
     {
         path: '/',
-        element: <RegisterLayout />,
+        element: (
+            <PublicRoute>
+                <AuthLayout />
+            </PublicRoute>
+        ),
         errorElement: <ErrorPage />,
         children: [
             {
@@ -45,5 +69,9 @@ export const router = createBrowserRouter([
                     })),
             },
         ],
+    },
+    {
+        path: '*',
+        element: <Navigate to={isAuthenticated() ? '/home' : '/'} replace />,
     },
 ]);

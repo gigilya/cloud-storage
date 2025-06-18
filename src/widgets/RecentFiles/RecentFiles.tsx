@@ -1,34 +1,32 @@
 import { FC } from 'react';
 import RecentFileItem from './RecentFileItem/RecentFileItem.tsx';
 import styles from './RecentFiles.module.css';
-
-interface FileItems {
-    id: number;
-    fileName: string;
-    fileSize: number;
-    mimeType: string;
-    folderURL: string;
-    shared: boolean;
-}
+import { FileItem } from '../../shared/api/types.ts';
 
 interface RecentFileProps {
-    filesUser: FileItems[];
+    filesUser?: FileItem[];
+
 }
 
-const files = [
-    {fileName: 'test1.txt', fileSize: 123456789, mimeType: 'text/plain', folderURL: '', shared: true},
-]
-
-const RecentFiles: FC<RecentFileProps> = ({ filesUser = files }) => {
+const RecentFiles: FC<RecentFileProps> = ({ filesUser = [] }) => {
+    if (!filesUser || filesUser.length === 0) {
+        return (
+            <section className={styles.recentFilesSection}>
+                <p>Нет файлов</p>
+            </section>
+        );
+    }
     return (
         <section className={styles.recentFilesSection}>
             <div className={styles.recentFilesContainer}>
-                {filesUser.map((file, index) => (
+                {filesUser?.map((file) => (
                     <RecentFileItem
-                        key={index}
+                        key={file.fileName}
                         name={file.fileName}
-                        size={(file.fileSize/2048).toFixed(2)}
-                        // iconColor={file.iconColor}
+                        size={`${(file.fileSize / 1024 / 1024).toFixed(2)}МБ`}
+                        fileName={file.fileName}
+                        isPublic={true}
+
                     />
                 ))}
             </div>

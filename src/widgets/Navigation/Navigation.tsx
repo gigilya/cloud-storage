@@ -5,16 +5,10 @@ const Navigation: React.FC = () => {
     return (
         <nav className={styles.navigation}>
             <button className={styles.navItem}>
-                <span className={`material-symbols-outlined ${styles.navIcon}`}>Доступные мне</span> All Files
+                <span className={`material-symbols-outlined ${styles.navIcon}`}>Доступные мне</span>
             </button>
             <button className={styles.navItem}>
-                <span className={`material-symbols-outlined ${styles.navIcon}`}>image</span> Images
-            </button>
-            <button className={styles.navItem}>
-                <span className={`material-symbols-outlined ${styles.navIcon}`}>description</span> Documents
-            </button>
-            <button className={styles.navItem}>
-                <span className={`material-symbols-outlined ${styles.navIcon}`}>movie</span> Videos
+                <span className={`material-symbols-outlined ${styles.navIcon}`}>Мои файлы</span>
             </button>
         </nav>
     );

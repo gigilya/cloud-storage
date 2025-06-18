@@ -7,13 +7,16 @@ import { useNavigate } from 'react-router';
 const Header: React.FC = () => {
     const navigate = useNavigate();
     const logout = async () => {
-        const response = await fetch('https://ggj-cldstrg.ru/api/v1/auth/logout',
+        const response = await fetch(
+            'https://ggj-cldstrg.ru/api/v1/auth/logout',
             {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `${localStorage.getItem('accessToken')}`,
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${localStorage.getItem(
+                        'accessToken',
+                    )}`,
+                },
             },
-        },
         );
         if (!response.ok) {
             let errorMessage = 'Ошибка регистрации';
@@ -27,11 +30,17 @@ const Header: React.FC = () => {
         }
         navigate('/');
         window.location.reload();
+    };
 
-    }
     return (
         <header className={styles.header}>
-            <div className={styles.logoContainer}>
+            <div
+                className={styles.logoContainer}
+                onClick={() => {
+                    navigate('/home/');
+                    window.location.reload();
+                }}
+            >
                 <svg
                     width="40"
                     height="32"
@@ -46,8 +55,17 @@ const Header: React.FC = () => {
                 <h1 className={styles.appName}>cloud-storage</h1>
             </div>
             <span className={styles.buttonUser}>
-                <Button icon={<UserOutlined />} />
-                <Button icon={<LogoutOutlined />} onClick={logout} />
+                <Button
+                    icon={<UserOutlined />}
+                    onClick={() => {
+                        navigate('/home/profile');
+                        window.location.reload();
+                    }}
+                />
+                <Button
+                    icon={<LogoutOutlined />}
+                    onClick={logout}
+                />
             </span>
         </header>
     );

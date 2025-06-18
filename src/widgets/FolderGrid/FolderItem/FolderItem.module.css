@@ -3,6 +3,7 @@
 .folderItem {
     background-color: var(--default-bg);
     padding: 16px;
+    margin-left: 10px;
     border-radius: 24px;
     transition: all 0.2s;
     transform: scale(1);

@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Outlet } from 'react-router-dom';
 import '../../App.css';
 
-const RegisterLayout: FC = () => {
+const AuthLayout: FC = () => {
     return (
         <div className="appContainer">
             <div className="mainContainer">
@@ -12,4 +12,4 @@ const RegisterLayout: FC = () => {
     );
 };
 
-export default RegisterLayout;
+export default AuthLayout;

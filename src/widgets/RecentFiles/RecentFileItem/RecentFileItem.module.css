@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 12px;
+    border-radius: 12px;
     transition: background-color 0.2s;
     color: var(--text-title-color)
 }
@@ -47,4 +48,8 @@
 
 .recentFileItem:hover .optionsIcon {
     opacity: 1;
+}
+
+.moreOptions{
+    cursor: pointer;
 }

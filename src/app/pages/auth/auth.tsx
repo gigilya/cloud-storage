@@ -11,12 +11,12 @@ const Auth: React.FC = () => {
     );
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [username, setUsername] = useState(''); // Добавлено для регистрации
+    const [login, setLogin] = useState(''); // Добавлено для регистрации
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
     const loginFetch = async (
-        username: string,
+        login: string,
         password: string,
     ): Promise<LoginResponse> => {
         const response = await fetch(
@@ -26,22 +26,21 @@ const Auth: React.FC = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ username, password }),
+                body: JSON.stringify({ login, password }),
             },
         );
-
+        if (!response.ok) {
+            let errorMessage = 'Ошибка авторизации';
+            try {
+                const errorData = await response.json();
+                errorMessage = errorData.message || errorMessage;
+                
+            } catch (e) {
+                console.error('Не удалось распарсить ошибку:', e);
+            }
+            throw new Error(`${errorMessage} (код ${response.status})`);
+        }
         return response.json();
-        // if (!response.ok) {
-        //     let errorMessage = 'Ошибка авторизации';
-        //     try {
-        //         const errorData = await response.json();
-        //         errorMessage = errorData.message || errorMessage;
-        //     } catch (e) {
-        //         console.error('Не удалось распарсить ошибку:', e);
-        //     }
-        //     throw new Error(`${errorMessage} (код ${response.status})`);
-        // }
-        // return response.json();
     };
 
     const registerFetch = async (
@@ -80,14 +79,15 @@ const Auth: React.FC = () => {
         try {
             if (activeTab === 'profile') {
                 // Логика входа
-                const { refreshToken } = await loginFetch(username, password);
+                const { refreshToken, accessToken } = await loginFetch(login, password);
                 localStorage.setItem('refreshToken', refreshToken);
+                localStorage.setItem('accessToken', accessToken);
                 navigate('/home');
                 window.location.reload();
             } else {
                 // Логика регистрации
-                await registerFetch(email, password, username);
-                const { refreshToken } = await loginFetch(username, password);
+                await registerFetch(email, password, login);
+                const { refreshToken } = await loginFetch(login, password);
                 localStorage.setItem('refreshToken', refreshToken);
                 navigate('/home');
                 window.location.reload();
@@ -125,12 +125,12 @@ const Auth: React.FC = () => {
                 onSubmit={handleSubmit}
             >
                 <div className={style.inputGroup}>
-                    <label htmlFor="username">Имя пользователя</label>
+                    <label htmlFor="login">Имя пользователя</label>
                     <Input
                         type="text"
-                        placeholder="username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
+                        placeholder="login"
+                        value={login}
+                        onChange={(e) => setLogin(e.target.value)}
                     />
                 </div>
                 <div className={style.inputGroup}>
@@ -152,10 +152,10 @@ const Auth: React.FC = () => {
                 </div>
                 {activeTab === 'register' && (
                     <div className={style.inputGroup}>
-                        <label htmlFor="login">Логин</label>
+                        <label htmlFor="email">email</label>
                         <Input
                             type="text"
-                            placeholder="login"
+                            placeholder="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
