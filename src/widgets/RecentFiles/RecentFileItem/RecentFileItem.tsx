@@ -79,16 +79,14 @@ const RecentFileItem: React.FC<RecentFileItemProps> = ({
                     { const viewResponse = await fetch(
                         `https://ggj-cldstrg.ru/api/v1/storage/view/file?fileName=${fileName}`,
                         {
-                            method: 'POST',
                             headers: {
-                                'Content-Type': 'application/json',
                                 Authorization: token,
                             },
-                            body: JSON.stringify({ fileName }),
                         },
                     );
-                    const fileData = await viewResponse.json();
-                    window.open(fileData.url, '_blank');
+                    const fileData = await viewResponse.blob();
+                    const fileURL = URL.createObjectURL(fileData);
+                    window.open(fileURL, '_blank')
                     break; }
 
                 case 'delete':
@@ -101,7 +99,6 @@ const RecentFileItem: React.FC<RecentFileItemProps> = ({
                                     'Content-Type': 'application/json',
                                     Authorization: token,
                                 },
-                                body: JSON.stringify({ fileName }),
                             },
                         );
                         message.success('Файл удален');
