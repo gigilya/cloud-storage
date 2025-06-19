@@ -16,28 +16,28 @@ const Home: FC = () => {
     const fileInputRef = useRef<HTMLInputElement>(null);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const fetchFiles = async () => {
-            try {
-                const response = await fetch(
-                    `https://ggj-cldstrg.ru/api/v1/storage/my-files`,
-                    {
-                        headers: {
-                            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
-                        },
-                    }
-                );
-                if (!response.ok) throw new Error(response.statusText);
-                const data = await response.json();
-                setFiles(data);
-            } catch (error) {
-                console.error('Error fetching files:', error);
-                navigate('/error');
-            }
-        };
-
-        fetchFiles();
+const fetchFiles = useCallback(async () => {
+        try {
+            const response = await fetch(
+                `https://ggj-cldstrg.ru/api/v1/storage/my-files`,
+                {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
+                    },
+                }
+            );
+            if (!response.ok) throw new Error(response.statusText);
+            const data = await response.json();
+            setFiles(data);
+        } catch (error) {
+            console.error('Error fetching files:', error);
+            navigate('/error');
+        }
     }, [navigate]);
+
+    useEffect(() => {
+        fetchFiles();
+    }, [fetchFiles]);
 
     const handleAddFileClick = () => {
         fileInputRef.current?.click();
