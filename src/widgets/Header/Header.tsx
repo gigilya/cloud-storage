@@ -28,6 +28,8 @@ const Header: React.FC = () => {
             }
             throw new Error(`${errorMessage} (код ${response.status})`);
         }
+        ocalStorage.removeItem('accessToken');
+        localStorage.removeItem('refreshToken');
         navigate('/');
         window.location.reload();
     };
