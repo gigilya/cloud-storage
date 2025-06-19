@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState, useRef } from 'react';
+import React, { FC, useEffect, useState, useRef, useCallback } from 'react';
 import Input from '../../../widgets/Input/Input.tsx';
 import Button from '../../../widgets/Button/Button.tsx';
 import Folder from '../../../widgets/FolderGrid/Folder.tsx';
@@ -16,21 +16,23 @@ const Home: FC = () => {
     const fileInputRef = useRef<HTMLInputElement>(null);
     const navigate = useNavigate();
 
-const fetchFiles = useCallback(async () => {
+    const fetchFiles = useCallback(async () => {
         try {
             const response = await fetch(
                 `https://ggj-cldstrg.ru/api/v1/storage/my-files`,
                 {
                     headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
+                        Authorization: `Bearer ${localStorage.getItem(
+                            'accessToken',
+                        )}`,
                     },
-                }
+                },
             );
             if (!response.ok) throw new Error(response.statusText);
             const data = await response.json();
             setFiles(data);
-        } catch (error) {
-            console.error('Error fetching files:', error);
+        } catch (data) {
+            console.error('Error fetching files:', data);
             navigate('/error');
         }
     }, [navigate]);
@@ -53,20 +55,22 @@ const fetchFiles = useCallback(async () => {
 
         try {
             const response = await fetch(
-                'https://ggj-cldstrg.ru/api/v1/storage/upload',
+                'https://ggj-cldstrg.ru/api/v1/storage/upload/file',
                 {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
+                        Authorization: `Bearer ${localStorage.getItem(
+                            'accessToken',
+                        )}`,
                     },
                     body: formData,
-                }
+                },
             );
 
             if (!response.ok) throw new Error(await response.text());
 
             const newFile: FileItem = await response.json();
-            setFiles(prevFiles => [newFile, ...prevFiles]);
+            setFiles((prevFiles) => [newFile, ...prevFiles]);
             message.success('Файл успешно загружен');
         } catch (error) {
             console.error('Upload error:', error);
@@ -91,7 +95,10 @@ const fetchFiles = useCallback(async () => {
             <div className={styles.header}>
                 <h1 className={styles.headerText}>File Manager</h1>
                 <div className={styles.actionsContainer}>
-                    <Input icon={<Search />} placeholder="Поиск файлов..." />
+                    <Input
+                        icon={<Search />}
+                        placeholder="Поиск файлов..."
+                    />
                     <div className={styles.buttonsContainer}>
                         <Button
                             icon={<PlusOutlined />}
@@ -106,7 +113,7 @@ const fetchFiles = useCallback(async () => {
 
             <Folder />
 
-            <RecentFiles filesUser={files.slice(0, 5)} />
+            <RecentFiles filesUser={files.slice(0, 5)} onUpdate={fetchFiles} />
 
             {files.length > 5 && (
                 <div className={styles.showAllContainer}>

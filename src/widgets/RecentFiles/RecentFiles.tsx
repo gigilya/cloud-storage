@@ -5,10 +5,10 @@ import { FileItem } from '../../shared/api/types.ts';
 
 interface RecentFileProps {
     filesUser?: FileItem[];
-
+    onUpdate?: () => void;
 }
 
-const RecentFiles: FC<RecentFileProps> = ({ filesUser = [] }) => {
+const RecentFiles: FC<RecentFileProps> = ({ filesUser = [], onUpdate }) => {
     if (!filesUser || filesUser.length === 0) {
         return (
             <section className={styles.recentFilesSection}>
@@ -26,7 +26,7 @@ const RecentFiles: FC<RecentFileProps> = ({ filesUser = [] }) => {
                         size={`${(file.fileSize / 1024 / 1024).toFixed(2)}МБ`}
                         fileName={file.fileName}
                         isPublic={true}
-
+                        onUpdate={onUpdate}
                     />
                 ))}
             </div>

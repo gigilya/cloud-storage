@@ -28,9 +28,9 @@ const Header: React.FC = () => {
             }
             throw new Error(`${errorMessage} (код ${response.status})`);
         }
-        ocalStorage.removeItem('accessToken');
+        localStorage.removeItem('accessToken');
         localStorage.removeItem('refreshToken');
-        navigate('/');
+        navigate('/auth');
         window.location.reload();
     };
 

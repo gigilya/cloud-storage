@@ -59,7 +59,7 @@ const RecentFileItem: React.FC<RecentFileItemProps> = ({
                         await fetch(
                             `https://ggj-cldstrg.ru/api/v1/storage/rename/file?fileName=${fileName}&newName=${newName}`,
                             {
-                                method: 'PUT',
+                                method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/json',
                                     Authorization: token,
